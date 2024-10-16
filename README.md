@@ -1,6 +1,6 @@
 # Apache VHost Configuration Analysis Tool
 
-This tool analyzes Apache Virtual Host (`vhost`) configuration files to detect security vulnerabilities. Specifically, it identifies cases where internal service domains (e.g., `voc.tsafetycall.co.kr`) are exposed via virtual host configurations, which could lead to sensitive information exposure or network infiltration if accessed externally.
+This tool analyzes Apache Virtual Host (`vhost`) configuration files to detect security vulnerabilities. Specifically, it identifies cases where internal service domains (e.g., `admin.test.com`) are exposed via virtual host configurations, which could lead to sensitive information exposure or network infiltration if accessed externally.
 
 ## Purpose
 
@@ -11,7 +11,7 @@ This tool aims to:
 
 ### Example Vulnerability
 
-If an internal service domain such as `voc.tsafetycall.co.kr` is configured in the Apache virtual host and exposed via a public IP address, an attacker could manipulate the `Host` header in HTTP requests to access internal services, potentially leading to sensitive information exposure or network infiltration.
+If an internal service domain such as `admin.test.com` is configured in the Apache virtual host and exposed via a public IP address, an attacker could manipulate the `Host` header in HTTP requests to access internal services, potentially leading to sensitive information exposure or network infiltration.
 
 ## Problem Overview
 
@@ -56,8 +56,8 @@ The tool will analyze the configuration files and output the detected `ServerNam
 
 ```
 ServerName,IP,VirtualHost,Port,Path,Public/Private IP
-voc.tsafetycall.co.kr,211.188.213.34,_default_,443,/path/to/vhost.conf,Public IP
-pri-owp-api.syrup.co.kr,203.235.201.63,_default_,9000,/path/to/vhost.conf,Public IP
+admin.test.com,1.1.1.1,_default_,443,/path/to/vhost.conf,Public IP
+admin.test2.com,2.2.2.2,_default_,9000,/path/to/vhost.conf,Public IP
 ```
 
 ## Detectable Vulnerabilities:
@@ -67,11 +67,11 @@ pri-owp-api.syrup.co.kr,203.235.201.63,_default_,9000,/path/to/vhost.conf,Public
 
 ## Example Configuration Problem:
 
-The following virtual host configuration could expose an internal domain (`voc.tsafetycall.co.kr`) to the public, allowing attackers to manipulate the `Host` header and gain access to internal resources:
+The following virtual host configuration could expose an internal domain (`admin.test.com`) to the public, allowing attackers to manipulate the `Host` header and gain access to internal resources:
 
 ```bash
 <VirtualHost *:443>
-    ServerName voc.tsafetycall.co.kr
+    ServerName admin.test.com
     DocumentRoot /var/www/voc
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
