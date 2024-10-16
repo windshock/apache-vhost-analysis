@@ -1,6 +1,3 @@
-### `README.md`
-
-```markdown
 # Apache VHost Configuration Analysis Tool
 
 This tool analyzes Apache Virtual Host (`vhost`) configuration files to detect security vulnerabilities. Specifically, it identifies cases where internal service domains (e.g., `voc.tsafetycall.co.kr`) are exposed via virtual host configurations, which could lead to sensitive information exposure or network infiltration if accessed externally.
