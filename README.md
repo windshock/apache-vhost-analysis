@@ -1,6 +1,4 @@
-이제 `listServerNamePort.py` 파일이 문제를 탐지하는 **Apache vhost** 분석 도구라는 점을 파악했습니다. 해당 도구의 목적과 기능에 맞는 **README** 파일을 작성하겠습니다.
-
-### `README.md` 작성
+### `README.md`
 
 ```markdown
 # Apache VHost Configuration Analysis Tool
@@ -94,11 +92,3 @@ Contributions are welcome! Please feel free to submit a pull request or report a
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
-```
-
-### 요약:
-- **Purpose**: Apache 설정 파일에서 내부 서비스 도메인이 외부에 노출되는 문제를 탐지하기 위한 도구.
-- **Usage**: 설정 파일을 스캔하고, 공인/사설 IP를 구분하여 문제가 될 수 있는 구성을 탐지.
-- **Example Output**: 도구 실행 후 `ServerName`, `IP`, `Port`, 및 해당 IP가 공인인지 사설인지 보여줌.
-
-이 **README.md**는 도구의 설치, 사용법, 탐지할 수 있는 취약점에 대한 설명을 포함하여, 사용자들이 쉽게 도구를 사용할 수 있도록 안내합니다.
