@@ -72,7 +72,7 @@ The following virtual host configuration could expose an internal domain (`admin
 ```bash
 <VirtualHost *:443>
     ServerName admin.test.com
-    DocumentRoot /var/www/voc
+    DocumentRoot /var/www/admin
     ErrorLog ${APACHE_LOG_DIR}/error.log
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
