@@ -48,7 +48,7 @@ Run the tool to analyze Apache virtual host configuration files (`vhost.conf`) a
 Use the following command to find `.conf` files under a specific directory and analyze them with the Python script:
 
 ```bash
-find ./me_conf*/ -name "*.conf" -path "*/extra/*" -exec python3 listServerNamePort.py {} \;
+find ./{apache_conf_directory}/ -name "*.conf" -path "*/extra/*" -exec python3 listServerNamePort.py {} \;
 ```
 
 ### Example Output:
